@@ -14,7 +14,7 @@ function createQuestion(collectionName, documentName, content) {
 }
 
 function initializeOptions(names) {
-    names.forEach(_name => {
+    names.forEach(function(_name) {
         db.collection("options").doc(_name).set({
             name: _name
         })
