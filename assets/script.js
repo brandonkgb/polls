@@ -1,4 +1,4 @@
-names = ['option A', 'option B', 'option C'];
+var names = ['option A', 'option B', 'option C'];
 initializeOptions(names);
 
 function createQuestion(collectionName, documentName, content) {
@@ -14,7 +14,7 @@ function createQuestion(collectionName, documentName, content) {
 }
 
 function initializeOptions(names) {
-    names.array.forEach(_name => {
+    names.forEach(_name => {
         db.collection("options").doc(_name).set({
             name: _name
         })
