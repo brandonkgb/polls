@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./assets/styles.css">
+</head>
+
+<body>
+    
+    <h5>FB</h5>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDuGoimXrMtkCAjISU8Vl9ppKr13QNPsOI",
+            authDomain: "polls-fadfa.firebaseapp.com",
+            databaseURL: "https://polls-fadfa.firebaseio.com",
+            projectId: "polls-fadfa",
+            storageBucket: "polls-fadfa.appspot.com",
+            messagingSenderId: "1099049979985",
+            appId: "1:1099049979985:web:e66ae79e02c55d48b32870"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+
+        db.collection("questions").doc("question3").set({
+            name: "What is favorite3?"
+        })
+        .then(function() {
+            console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+
+    </script>
+    <script type="text/javascript" src="./assets/script.js"></script>
+
+</body>
+
+</html>
