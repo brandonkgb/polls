@@ -5,13 +5,20 @@ $(function() {
 
     setTimeout(function() {
         if ($questions != null) {
-            $questions.forEach(function(question) {
+            $questions.forEach(function(question, i) {
                 console.log(question);
                 $("#questionBody").append(
-                    "<div class='question'>" + question + "</div>"
+                    "<div id=question" + i + " class='question'>" + question + "</div>"
                 );
+
+                $names.forEach(function(name) {
+                    $("#question" + i).append(
+                        "<input type='radio'" + " name=test" +  "value=" + name + " class='voteOption'>" + name + "</input>"
+                    );
+                });
             });
         }
+
     }, 500);
 });
 
@@ -43,7 +50,7 @@ function initializeOptions(names) {
 
 function getAllQuestions() {
     var questionsRef = db.collection('questions');
-    tempQuestions = new Array();
+    var tempQuestions = new Array();
 
     questionsRef.get().then(function(questionSet) {
         questionSet.docs.map(doc => {
