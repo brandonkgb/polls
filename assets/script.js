@@ -4,10 +4,15 @@ $(function() {
 
     $questionDict = getAllQuestions();
 
+    $results = new Array();
+
     setTimeout(function() {
         if ($questionDict != null) {
 
             for (var key in $questionDict) {
+                $resultsObject = new Object();
+                $resultsObject["questionID"] = key;
+
                 $("#questionBody").append(
                     `<div id=${key} class='question'> ${$questionDict[key]} </div>`
                 );
@@ -22,7 +27,11 @@ $(function() {
                     $(`#${key}-select`).append(
                         `<option value= ${name} class='voteOption'> ${name} </option>`
                     );
+
+                    $resultsObject[name] = 0;
                 });
+
+                $results.push($resultsObject);
             }
         }
     }, 1000);
@@ -110,4 +119,28 @@ function submitResponses(selectionsDict) {
             console.error("Error submitting responses: ", error);
         });
     }
+}
+
+function getResults() {
+    var responsesRef = db.collection('responses');
+    var tempDict = new Object();
+
+    responsesRef.get().then(function(responseSet) {
+        responseSet.docs.map(doc => {
+            if (doc.data() != null) {
+                $results.forEach(function(resultsObject) {
+                    if (doc.data().questionID == resultsObject["questionID"]) {
+                        resultsObject[doc.data().selection] += 1;
+                        console.log(doc.data().questionID + " " + doc.data().selection);
+                    }
+                });
+            } else {
+                console.log("No response data...");
+            }
+        });
+    });
+
+    setTimeout(function(){
+        console.log($results);
+    }, 2000);
 }
