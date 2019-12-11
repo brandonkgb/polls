@@ -12,12 +12,18 @@ $(function() {
                     `<div id=${key} class='question'> ${$questionDict[key]} </div>`
                 );
 
+                $(`#${key}`).append(
+                    `<select id=${key}-select> 
+                        <option disabled selected value> -- Select Someone! -- </option>
+                    </select>`
+                );
+
                 $names.forEach(function(name) {
-                    $("#" + key).append(
-                        `<input type='radio' name=${key} value= ${name} class='voteOption'> ${name} </input>`
+                    $(`#${key}-select`).append(
+                        `<option value= ${name} class='voteOption'> ${name} </option>`
                     );
                 });
-            }   
+            }
         }
     }, 1000);
 
@@ -25,7 +31,7 @@ $(function() {
         $selectionsDict = new Object();
 
         $(".question").each(function(){
-            $selectionsDict[this.id] = $(`#${this.id} input[name=${this.id}]:checked`).val()
+            $selectionsDict[this.id] = $(`#${this.id} #${this.id}-select`).val();
         });    
 
         $isFormValid = validateOptions($selectionsDict);
