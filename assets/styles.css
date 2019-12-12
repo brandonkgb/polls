@@ -1,3 +1,122 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/*
+font-family: 'Bree Serif', serif;
+font-family: 'Lakki Reddy', cursive;
+font-family: 'Inconsolata', monospace;
+*/
+
 body {
     background-color: rgb(134, 134, 238);
+}
+
+.headerSection {
+    background-color: pink;
+    margin: 0;
+    padding: 0;
+    height: 8em;
+    width: 100%;
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 3em;
+}
+
+.header {
+    margin: 0;
+    font-size: 4em;
+    font-family: 'Bree Serif', serif;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.wrappedUp {
+    font-family: 'Lakki Reddy', cursive;
+}
+
+.subheader {
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 0.1px;
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+.instructions {
+    padding-left: 35em;
+}
+
+.instructionPoint {
+    margin: 0;
+}
+
+#questionBody {
+    background-color: rgb(110, 110, 211);
+    width: 60em;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 2em;
+    padding-top: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+.question {
+    margin: 0 1em 1em 1em;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Inconsolata', monospace;
+}
+
+#submitButton {
+    display: block;
+    margin: 0.5em auto;
+    font-family: 'Inconsolata', monospace;
+    font-size: 2em;
+    border-radius: 5px;
+    padding: 0.2em 0.5em;
+    background-color: pink;
+    color: black;
+    border: none;
+}
+
+@media (max-width:1000px) {
+    .headerSection {
+        height: 6em;
+    }
+
+    .header {
+        font-size: 3em;
+    }
+
+    .subheader {
+        font-size: 1.3em;
+    }
+
+    #questionBody {
+        width: 45em;
+    }
+}
+
+@media (max-width:768px) {
+    .headerSection {
+        height: 14em;
+    }
+
+    .header {
+        font-size: 4em;
+    }
+
+    .subheader {
+        font-size: 1.3em;
+    }
+
+    #questionBody {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .question {
+        font-size: 2em;
+    }
 }
