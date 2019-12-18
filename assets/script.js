@@ -125,6 +125,10 @@ function getResults() {
     var responsesRef = db.collection('responses');
     var tempDict = new Object();
 
+    for (var key in $questionDict) {
+        resultsObject[key] = 0;
+    }
+
     responsesRef.get().then(function(responseSet) {
         responseSet.docs.map(doc => {
             if (doc.data() != null) {
