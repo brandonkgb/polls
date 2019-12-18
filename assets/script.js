@@ -168,8 +168,11 @@ function countResults(results) {
         highestCount = 0;
         for (var key in resultsObject) {
             if (resultsObject[key] > highestCount) {
-                finalResults[resultsObject["questionID"]] = key;
+                finalResults[resultsObject["questionID"]] = new Array();
+                finalResults[resultsObject["questionID"]].push(key);
                 highestCount = resultsObject[key];
+            } else if (resultsObject[key] == highestCount && highestCount != 0) {
+                finalResults[resultsObject["questionID"]].push(key);
             }
         }
     });
