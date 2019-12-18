@@ -34,7 +34,7 @@ $(function() {
                 $results.push($resultsObject);
             }
         }
-    }, 1000);
+    }, 2000);
 
     $("#submitButton").on('click', function() {
         $selectionsDict = new Object();
@@ -185,7 +185,7 @@ function countResults(results) {
 function printResults(results) {
     for (var questionKey in $questionDict) {
         console.log(`---${$questionDict[questionKey]}---`);
-        
+
         results[questionKey].forEach(function(winner){
             console.log(winner)
         });
