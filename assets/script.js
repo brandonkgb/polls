@@ -147,7 +147,9 @@ function getResults() {
 
     setTimeout(function(){
         console.log($results);
-        console.log(countResults($results));
+        finalResults = countResults($results);
+        console.log(finalResults);
+        printResults(finalResults);
     }, 2000);
 }
 
@@ -178,4 +180,14 @@ function countResults(results) {
     });
 
     return finalResults;
+}
+
+function printResults(results) {
+    for (var questionKey in $questionDict) {
+        console.log(`---${$questionDict[questionKey]}---`);
+        
+        results[questionKey].forEach(function(winner){
+            console.log(winner)
+        });
+    }
 }
