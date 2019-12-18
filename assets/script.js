@@ -147,6 +147,7 @@ function getResults() {
 
     setTimeout(function(){
         console.log($results);
+        console.log(countResults($results));
     }, 2000);
 }
 
@@ -158,4 +159,20 @@ function resetResults() {
             }
         } 
     }
+}
+
+function countResults(results) {
+    var finalResults = new Array();
+
+    $results.forEach(function(resultsObject) {
+        highestCount = 0;
+        for (var key in resultsObject) {
+            if (resultsObject[key] > highestCount) {
+                finalResults[resultsObject["questionID"]] = key;
+                highestCount = resultsObject[key];
+            }
+        }
+    });
+
+    return finalResults;
 }
