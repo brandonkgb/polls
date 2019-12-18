@@ -125,9 +125,7 @@ function getResults() {
     var responsesRef = db.collection('responses');
     var tempDict = new Object();
 
-    for (var key in $questionDict) {
-        resultsObject[key] = 0;
-    }
+    resetResults();
 
     responsesRef.get().then(function(responseSet) {
         responseSet.docs.map(doc => {
@@ -135,7 +133,6 @@ function getResults() {
                 $results.forEach(function(resultsObject) {
                     if (doc.data().questionID == resultsObject["questionID"]) {
                         resultsObject[doc.data().selection] += 1;
-                        console.log(doc.data().questionID + " " + doc.data().selection);
                     }
                 });
             } else {
@@ -147,4 +144,14 @@ function getResults() {
     setTimeout(function(){
         console.log($results);
     }, 2000);
+}
+
+function resetResults() {
+    for (i = 0; i < $results.length; i++) {
+        for (var key in $results[i]) {
+            if (key != 'questionID') {
+                $results[i][key] = 0;
+            }
+        } 
+    }
 }
