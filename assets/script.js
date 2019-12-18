@@ -114,6 +114,10 @@ function submitResponses(selectionsDict) {
         })
         .then(function() {
             console.log("Responses submitted.");
+            $('#submitButton').attr("disabled", true);
+            $('#submitButton').removeClass('enabledButton');
+            $('#submitButton').addClass('disabledButton');
+            $('#submitButton').html('Done. Thanks! :)')
         })
         .catch(function(error) {
             console.error("Error submitting responses: ", error);

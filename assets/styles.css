@@ -75,9 +75,16 @@ body {
     font-size: 2em;
     border-radius: 5px;
     padding: 0.2em 0.5em;
-    background-color: pink;
     color: black;
     border: none;
+}
+
+.enabledButton {
+    background-color: pink;
+}
+
+.disabledButton {
+    background-color: aliceblue;
 }
 
 @media (max-width:1000px) {
