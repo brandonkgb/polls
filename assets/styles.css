@@ -127,3 +127,51 @@ body {
         font-size: 2em;
     }
 }
+
+
+@media (max-width:500px) {
+    .headerSection {
+        height: 11em;
+    }
+
+    .header {
+        font-size: 3em;
+    }
+
+    .subheader {
+        font-size: 1.3em;
+    }
+
+    #questionBody {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .question {
+        font-size: 2em;
+    }
+}
+
+@media (max-width:375px) {
+    .headerSection {
+        height: 10em;
+    }
+
+    .header {
+        font-size: 2.5em;
+    }
+
+    .subheader {
+        font-size: 1.3em;
+    }
+
+    #questionBody {
+        margin-top: 0;
+        width: 100%;
+    }
+
+    .question {
+        font-size: 2em;
+    }
+}
+
