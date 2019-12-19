@@ -87,6 +87,14 @@ body {
     background-color: aliceblue;
 }
 
+.selectorDiv select {
+    background-color: rgb(229, 229, 236);
+    border-radius: 5px;
+    width: 30%;
+    font-size: 0.7em;
+    margin-top: 0.5em;
+}
+
 @media (max-width:1000px) {
     .headerSection {
         height: 6em;

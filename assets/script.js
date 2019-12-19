@@ -18,9 +18,11 @@ $(function() {
                 );
 
                 $(`#${key}`).append(
-                    `<select id=${key}-select> 
-                        <option disabled selected value> -- Select Someone! -- </option>
-                    </select>`
+                    `<div class='selectorDiv'>
+                        <select id=${key}-select> 
+                            <option disabled selected value> -- Select Someone! -- </option>
+                        </select>
+                    </div>`
                 );
 
                 $names.forEach(function(name) {
