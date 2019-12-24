@@ -1,6 +1,33 @@
 $(function() {
-    $names = ['optionA', 'optionB', 'optionC'];
+    $names = [
+        'Aaron Dinh', 
+        'Alex Lee', 
+        'Amy Cheung',
+        'Brandon Nguyen',
+        'Bruce Lee',
+        'Dang Tran',
+        'Duc Vu',
+        'George Yang',
+        'Jade Huynh',
+        'Kane Dinh',
+        'Lillian Trinh',
+        'Megan Lam',
+        'Brandon Huynh',
+        'Sean Brame',
+        'Taylor Zheng',
+        'Thao Huynh',
+        'Victoria Vuong',
+        'Zeeky Le'
+    ];
+
+    $questions = [
+        'Most likely to be famous',
+        'Best storyteller',
+        'Most likely to save the world from zombies'
+    ];
+
     initializeOptions($names);
+    initializeQuestions($questions);
 
     $questionDict = getAllQuestions();
 
@@ -69,8 +96,28 @@ function createQuestion(collectionName, documentName, content) {
 
 function initializeOptions(names) {
     names.forEach(function(_name) {
-        db.collection('options').doc(_name).set({
+
+        var optionID = _name.replace(/\s+/g, '-').toLowerCase();
+
+        db.collection('options').doc(optionID).set({
             name: _name
+        })
+        .then(function() {
+            console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        }); 
+    });
+}
+
+function initializeQuestions(questions) {
+    questions.forEach(function(_question) {
+
+        var questionID = _question.replace(/\s+/g, '-').toLowerCase();
+
+        db.collection('questions').doc(questionID).set({
+            name: _question
         })
         .then(function() {
             console.log("Document successfully written!");
@@ -148,7 +195,7 @@ function getResults() {
     });
 
     setTimeout(function(){
-        console.log($results);
+        console.log($results); 
         finalResults = countResults($results);
         console.log(finalResults);
         printResults(finalResults);
